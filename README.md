@@ -1,3 +1,3 @@
 # 42-DEVOPS
 
-Checkout branches to see more projects
+See branches to see more projects
