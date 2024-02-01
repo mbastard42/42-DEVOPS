@@ -32,25 +32,30 @@ OBJS		:=	$(subst $(SDIR),$(ODIR), ${SRCS:.$(FILE)=.$(COMP)})
 #	============================================================================== [  MAKEFILE RULES	#
 #																										#
 $(ODIR)%.$(COMP)	:	$(SDIR)%.$(FILE)
+#																										#
 	mkdir -p $(subst $(SDIR),$(ODIR), $(shell dirname $<)/)
 	$(CC) $(CFLG) -c $< -o ${addprefix $(ODIR), ${<:$(SDIR)%.$(FILE)=%.$(COMP)}}
 	echo "build\t\t$(YELLOW)compiled$(RESET)\t$(GREY)$(ODIR)${<:$(SDIR)%.$(FILE)=%.$(COMP)}$(RESET)"
 #																										#
 ${NAME}				:	$(OBJS)
+#																										#
 	mkdir -p $(BDIR)
 	$(CC) $(CFLG) $(LFLG) $(OBJS) -o $(NAME)
 	echo "$(GREEN)build\t\tlinked\t\t$(BOLD)$(NAME)$(RESET)"
 #																										#
 print	:
+#																										#
 	echo "$(BOLD)RULE\t\tACTION\t\tTARGET$(RESET)"
 #																										#
 build	:	print ${NAME}
 #																										#
 clean	:	print
+#																										#
 	rm -rf $(ODIR)
 	echo "$(GREY)clean$(RESET)\t\t$(RED)deleted$(RESET)\t\t$(ODIR)"
 #																										#
 fclean	:	print clean
+#																										#
 	rm -rf $(BDIR)
 	echo "$(GREY)fclean$(RESET)\t\t$(RED)deleted$(RESET)\t\t$(BDIR)"
 #																										#
@@ -65,6 +70,7 @@ all		:	print build clean
 bonus	:	build																						#
 #																										#
 ping	:
+#																										#
 	tar -zxvf inetutils-2.0.tar.gz
 	cd inetutils-2.0 && ./configure \
 		--prefix=/usr				\
@@ -78,6 +84,6 @@ ping	:
 		--disable-servers
 	cd inetutils-2.0 && make && sudo make install
 #																										#
-.PHONY	:	re all bonus
+.PHONY	:	re all bonus ping
 #																										#
 #	===================================================================================== [ MAKEFILE	#
