@@ -61,11 +61,11 @@ fclean	:	print clean
 #																										#
 .PHONY	:	print build clean fclean
 #																										#
-#	                                       [  CUSTOM RULES  ] ======================================	#
-#																										#
 re		:	print fclean build
 #																										#
 all		:	print build clean
+#																										#
+#	                                       [  CUSTOM RULES  ] ======================================	#
 #																										#
 bonus	:	build																						#
 #																										#

@@ -1,6 +1,6 @@
 #include "../../inc/ping.h"
 
-// static void min_parser(t_config * config, char * arg) {
+// static void minimized_parser(t_config * config, char * arg) {
 
 //     (void)config;
 //     (void)arg;

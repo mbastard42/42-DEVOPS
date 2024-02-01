@@ -12,7 +12,7 @@ size_t  ft_sublen(char * str, char c) {
 
 size_t  ft_strlen(char * str) {
 
-    return ft_sublen(str, '\0');
+    return ft_sublen(str, 0);
 }
 
 char *  ft_strchr(char * str, char c) {

@@ -17,6 +17,17 @@ int     ft_strcmp(char * s1, char * s2);
 char *  ft_strdup(char * str);
 char *  ft_strcpy(char * dst, char * src);
 
+//  UTILS/TYPE.C
+
 bool    isnum(char * str);
+bool    ishex(char * str);
+
+//  UTILS/CONVERT.C
+
+int     ft_atoi(char * str);
+int     ft_atoh(char * str);
+
+//  UTILS/END.C
+
 void    freetab(char ** tab);
 void *  nerr(int code, char * message);
