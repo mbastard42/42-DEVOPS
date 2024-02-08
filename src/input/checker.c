@@ -19,10 +19,10 @@ static char ** flags = (char *[]) {
     "--route",
     "--size",
     "--timestamp",
-    "--timeout",
+    "--type",
     "--tos",
     "--ttl",
-    "--type",
+    "--timeout",
     "--usage",
     "--verbose",
     "--version",
@@ -149,15 +149,15 @@ static void specific_checker(t_config * config, char * arg) {
 
             }
 
-            else if (i == 6) { // --size}
+            else if (i == 6) { // --size
 
-                for (size_t j = flag_len + 1; !config->error && arg[j]; j++) // --preload=text
+                for (size_t j = flag_len + 1; !config->error && arg[j]; j++) // --size=text
                     if ((j == flag_len + 1 && !ft_strchr("-+0123456789", arg[j])) || (j > flag_len + 1 && !ft_strchr("0123456789", arg[j])))
                         config->error = 1 % fprintf(stderr, "ft_ping: invalid value: ('%s' near '%s')\n", val, &arg[j]);
                 
-                if (converted > 65399) // --preload=x>65399
+                if (converted > 65399) // --size=x>65399
                     config->error = 1 % fprintf(stderr, "ft_ping: option value too big: %s\n", val);
-                else if (converted < 0 || *val == '-') // --preload= // --preload=x<0
+                else if (converted < 0 || *val == '-') // --size= // --size=x<0
                     config->error = 1 % fprintf(stderr, "ft_ping: option value too big: %s\n", val);
 
             }
